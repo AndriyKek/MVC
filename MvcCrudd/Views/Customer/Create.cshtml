@@ -1,0 +1,71 @@
+﻿@model MvcCrudd.Models.Customer
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-body">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        
+            @Html.LabelFor(model => model.Name) 
+       
+            @Html.EditorFor(model => model.Name)
+           
+            @Html.ValidationMessageFor(model => model.Name)
+       
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Surname)
+
+            @Html.EditorFor(model => model.Surname)
+            @Html.ValidationMessageFor(model => model.Surname)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description)
+
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Number)
+            @Html.EditorFor(model => model.Number)
+            @Html.ValidationMessageFor(model => model.Number)
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Age)
+
+            @Html.EditorFor(model => model.Age)
+            @Html.ValidationMessageFor(model => model.Age)
+
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn button" />
+            <input type="reset" value="Reset" class="btn button" />
+        </div>
+    </div>
+}
+
+<div>
+    <a href="@Url.Action("Index")" class="btn btn-default"><i class="fa fa-undo"></i> Customers</a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
